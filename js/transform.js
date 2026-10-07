@@ -3,6 +3,8 @@
 // Pure functions only (no DOM, no network) so they run unchanged under
 // `node --test`. Every number the page shows is computed here.
 
+import { isAvoidable } from "./avoidable.js";
+
 const DIFFICULTY = { 1: "LFR", 2: "Flex", 3: "Normal", 4: "Heroic", 5: "Mythic" };
 
 export function difficultyLabel(difficulty, size) {
@@ -60,6 +62,7 @@ export function buildPulls(fights) {
         startTime: f.startTime,
         endTime: f.endTime,
         durationMs: f.endTime - f.startTime,
+        players: f.friendlyPlayers ?? null,
         // Health left on the boss when the pull ended (0 on a kill).
         bossPct: kill ? 0 : normalisePercent(f.bossPercentage ?? f.fightPercentage),
       };
@@ -188,6 +191,184 @@ export function buildKills(pulls, killTables, players) {
     });
 }
 
+// ---- avoidable damage, interrupts, dispels ----
+
+function pullFor(ev, pulls) {
+  return (
+    pulls.find((p) => p.id === ev.fight) ??
+    pulls.find((p) => ev.timestamp >= p.startTime && ev.timestamp <= p.endTime) ??
+    null
+  );
+}
+
+// One row per avoidable hit on a player. Hits from abilities not on that
+// boss's list are dropped, even if the API returned them.
+export function buildAvoidableHits(events, pulls, players, abilities) {
+  const playerById = new Map(players.map((p) => [p.id, p]));
+  const abilityName = new Map(abilities.map((a) => [a.gameID, a.name]));
+  const rows = [];
+  for (const ev of events) {
+    if (ev.type && ev.type !== "damage") continue;
+    const player = playerById.get(ev.targetID);
+    const pull = player && pullFor(ev, pulls);
+    if (!pull) continue;
+    const ability = abilityName.get(ev.abilityGameID);
+    if (!ability || !isAvoidable(pull.boss, ability)) continue;
+    rows.push({
+      pullId: pull.id,
+      bossKey: pull.bossKey,
+      player: player.name,
+      cls: player.cls,
+      ability,
+      amount: (ev.amount ?? 0) + (ev.absorbed ?? 0),
+    });
+  }
+  return rows;
+}
+
+export function summariseAvoidable(rows, roster) {
+  const byPlayer = new Map(roster.map((p) => [p.name, { name: p.name, cls: p.cls, total: 0, hits: 0, abilities: new Map() }]));
+  const byAbility = new Map();
+  for (const r of rows) {
+    if (!byPlayer.has(r.player)) byPlayer.set(r.player, { name: r.player, cls: r.cls, total: 0, hits: 0, abilities: new Map() });
+    const p = byPlayer.get(r.player);
+    p.total += r.amount;
+    p.hits += 1;
+    p.abilities.set(r.ability, (p.abilities.get(r.ability) ?? 0) + r.amount);
+
+    if (!byAbility.has(r.ability)) byAbility.set(r.ability, { ability: r.ability, total: 0, hits: 0, players: new Map() });
+    const a = byAbility.get(r.ability);
+    a.total += r.amount;
+    a.hits += 1;
+    a.players.set(r.player, (a.players.get(r.player) ?? 0) + 1);
+  }
+  const topOf = (map) => [...map.entries()].sort((x, y) => y[1] - x[1]);
+  return {
+    total: sum(rows.map((r) => r.amount)),
+    hits: rows.length,
+    byPlayer: [...byPlayer.values()]
+      .map((p) => ({ name: p.name, cls: p.cls, total: p.total, hits: p.hits, top: topOf(p.abilities).slice(0, 3) }))
+      .sort((a, b) => b.total - a.total || a.name.localeCompare(b.name)),
+    byAbility: [...byAbility.values()]
+      .map((a) => ({ ability: a.ability, total: a.total, hits: a.hits, worst: topOf(a.players).slice(0, 3) }))
+      .sort((a, b) => b.total - a.total),
+  };
+}
+
+// Interrupts and dispels share a shape: who did it, and to which spell or aura.
+export function buildActions(events, type, pulls, players, abilities) {
+  const playerById = new Map(players.map((p) => [p.id, p]));
+  const abilityName = new Map(abilities.map((a) => [a.gameID, a.name]));
+  const rows = [];
+  for (const ev of events) {
+    if (ev.type && ev.type !== type) continue;
+    const player = playerById.get(ev.sourceID);
+    const pull = player && pullFor(ev, pulls);
+    if (!pull) continue;
+    const id = ev.extraAbilityGameID ?? ev.abilityGameID;
+    rows.push({
+      pullId: pull.id,
+      bossKey: pull.bossKey,
+      player: player.name,
+      cls: player.cls,
+      spell: abilityName.get(id) || (id ? `Spell ${id}` : "Unknown"),
+    });
+  }
+  return rows;
+}
+
+export function summariseActions(rows, roster) {
+  const byPlayer = new Map(roster.map((p) => [p.name, { name: p.name, cls: p.cls, count: 0, spells: new Map() }]));
+  const bySpell = new Map();
+  for (const r of rows) {
+    if (!byPlayer.has(r.player)) byPlayer.set(r.player, { name: r.player, cls: r.cls, count: 0, spells: new Map() });
+    const p = byPlayer.get(r.player);
+    p.count += 1;
+    p.spells.set(r.spell, (p.spells.get(r.spell) ?? 0) + 1);
+    if (!bySpell.has(r.spell)) bySpell.set(r.spell, { spell: r.spell, count: 0, players: new Map() });
+    const s = bySpell.get(r.spell);
+    s.count += 1;
+    s.players.set(r.player, (s.players.get(r.player) ?? 0) + 1);
+  }
+  const topOf = (map) => [...map.entries()].sort((x, y) => y[1] - x[1]);
+  return {
+    total: rows.length,
+    byPlayer: [...byPlayer.values()]
+      .map((p) => ({ name: p.name, cls: p.cls, count: p.count, top: topOf(p.spells).slice(0, 3) }))
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name)),
+    bySpell: [...bySpell.values()]
+      .map((s) => ({ spell: s.spell, count: s.count, top: topOf(s.players).slice(0, 3) }))
+      .sort((a, b) => b.count - a.count),
+  };
+}
+
+// Everything in the "player checks" area, optionally limited to one boss.
+export function playerChecks(model, bossKey = null) {
+  const keep = (rows) => (bossKey ? rows.filter((r) => r.bossKey === bossKey) : rows);
+  return {
+    avoidable: summariseAvoidable(keep(model.avoidableHits), model.roster),
+    interrupts: summariseActions(keep(model.interrupts), model.roster),
+    dispels: summariseActions(keep(model.dispels), model.roster),
+  };
+}
+
+// ---- consumables ----
+
+const ELIXIRS = new Set([
+  "mad hozen elixir", "elixir of weaponry", "elixir of the rapids", "elixir of peace",
+  "elixir of perfection", "monk's elixir", "elixir of mirrors", "mantid elixir",
+]);
+const isFlask = (name) => /^flask of /i.test(name) || ELIXIRS.has(name.toLowerCase());
+const isFood = (name) => /^well fed$/i.test(name);
+const isPotion = (name) => /^potion of /i.test(name) || /^virmen's bite$/i.test(name);
+
+export const FLASK_OK = 0.9; // flask or elixir up for at least 90% of boss time
+export const FOOD_OK = 0.9;
+export const POTIONS_OK = 1; // at least one potion per pull on average
+
+function auraList(table) {
+  return table?.data?.auras ?? table?.auras ?? [];
+}
+
+export function buildConsumables(buffTables, roster, pulls) {
+  if (!buffTables || !Object.keys(buffTables).length) return [];
+  return roster
+    .filter((p) => buffTables[p.id])
+    .map((p) => {
+      const table = buffTables[p.id];
+      const auras = auraList(table);
+      const pullsIn = pulls.filter((f) => !f.players || f.players.includes(p.id));
+      const time = table?.data?.totalTime ?? table?.totalTime ?? sum(pullsIn.map((f) => f.durationMs));
+      const uptime = (match) => {
+        const best = Math.max(0, ...auras.filter((a) => match(a.name ?? "")).map((a) => a.totalUptime ?? 0));
+        return time > 0 ? Math.min(1, best / time) : 0;
+      };
+      const potions = auras.filter((a) => isPotion(a.name ?? ""));
+      const potionUses = sum(potions.map((a) => a.totalUses ?? 0));
+      const flaskNames = auras.filter((a) => isFlask(a.name ?? "")).map((a) => a.name);
+      return {
+        name: p.name,
+        cls: p.cls,
+        pulls: pullsIn.length,
+        flaskUptime: uptime(isFlask),
+        flaskNames,
+        foodUptime: uptime(isFood),
+        potionUses,
+        potionNames: potions.map((a) => a.name),
+        potionsPerPull: pullsIn.length ? potionUses / pullsIn.length : 0,
+      };
+    })
+    .map((c) => ({
+      ...c,
+      issues: [
+        c.flaskUptime < FLASK_OK && "flask",
+        c.foodUptime < FOOD_OK && "food",
+        c.potionsPerPull < POTIONS_OK && "potions",
+      ].filter(Boolean),
+    }))
+    .sort((a, b) => b.issues.length - a.issues.length || a.flaskUptime - b.flaskUptime || a.name.localeCompare(b.name));
+}
+
 export function buildModel(bundle) {
   const r = bundle.report;
   const players = (r.masterData?.actors ?? [])
@@ -202,8 +383,15 @@ export function buildModel(bundle) {
   const kills = buildKills(pulls, bundle.killTables, players);
 
   // Only count players who were actually present for a boss pull.
+  const inPulls = new Set(pulls.flatMap((p) => p.players ?? []));
   const seen = new Set([...deaths.map((d) => d.player), ...kills.flatMap((k) => [...k.damage, ...k.healing].map((e) => e.name))]);
-  const roster = players.filter((p) => seen.size === 0 || seen.has(p.name));
+  const roster = players.filter((p) =>
+    inPulls.size ? inPulls.has(p.id) : seen.size === 0 || seen.has(p.name),
+  );
+  const avoidableHits = buildAvoidableHits(bundle.damageTakenEvents ?? [], pulls, players, abilities);
+  const interrupts = buildActions(bundle.interruptEvents ?? [], "interrupt", pulls, players, abilities);
+  const dispels = buildActions(bundle.dispelEvents ?? [], "dispel", pulls, players, abilities);
+  const consumables = buildConsumables(bundle.buffTables, roster, pulls);
   const composition = [...countBy(roster, (p) => p.cls).entries()]
     .map(([cls, count]) => ({ cls, count }))
     .sort((a, b) => b.count - a.count || a.cls.localeCompare(b.cls));
@@ -240,6 +428,17 @@ export function buildModel(bundle) {
     kills,
     composition,
     roster,
+    avoidableHits,
+    interrupts,
+    dispels,
+    consumables,
+    has: {
+      // Older saved files (format 1) don't have these, so the page can say so.
+      avoidable: "damageTakenEvents" in bundle,
+      interrupts: "interruptEvents" in bundle,
+      dispels: "dispelEvents" in bundle,
+      consumables: "buffTables" in bundle,
+    },
   };
 }
 

@@ -7,7 +7,7 @@ import {
 } from "./auth.js";
 import { AuthError, fetchReportBundle } from "./api.js";
 import { buildModel, toCsv, PULL_COLUMNS, DEATH_COLUMNS } from "./transform.js";
-import { renderReport, killPanel } from "./render.js";
+import { renderReport, killPanel, checksPanel } from "./render.js";
 
 const $ = (id) => document.getElementById(id);
 const SETTINGS_KEY = "wcl.settings";
@@ -58,6 +58,8 @@ function show(bundle) {
   $("results").innerHTML = renderReport(model, { isDemo: Boolean(bundle.demo) });
   const select = $("kill-select");
   if (select) select.addEventListener("change", () => ($("kill-panel").innerHTML = killPanel(model.kills[Number(select.value)])));
+  const bossFilter = $("boss-filter");
+  if (bossFilter) bossFilter.addEventListener("change", () => ($("checks-panel").innerHTML = checksPanel(model, bossFilter.value || null)));
 }
 
 async function analyze(input) {

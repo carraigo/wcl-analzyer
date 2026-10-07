@@ -12,6 +12,9 @@ Paste a [Warcraft Logs](https://classic.warcraftlogs.com) report link and get a 
 | Deaths by player | Total deaths, and how often each player was the first to die |
 | What killed people early | Killing blows among the first three deaths of each pull (later deaths are usually the wipe snowballing) |
 | Kills | Damage and healing per second for every player on each boss kill |
+| Avoidable damage | Per player, damage taken from mechanics you're meant to dodge (Lightning Fists, Amethyst Pool and so on), with a per-boss filter. The list of abilities is in `js/avoidable.js`; edit it to suit your raid |
+| Interrupts and dispels | Who kicked and who cleansed, what they hit, and who did none, per boss or for the whole night |
+| Consumables | Flask or elixir uptime, Well Fed uptime and potions per pull for each player, with anyone below the bar flagged |
 | Raid composition | Class counts for the players seen in boss pulls |
 | Exports | Pulls and deaths as CSV, and the full raw API response as JSON (which you can re-open later without signing in) |
 
@@ -43,6 +46,7 @@ Then paste a report link such as `https://classic.warcraftlogs.com/reports/C9vGD
 - *Sign-in loops or "redirect_uri mismatch"*: the redirect URL on the client must match the page address exactly (https, trailing slash).
 - *Network or CORS error*: the browser blocked a request to Warcraft Logs. Try the Advanced (client secret) option; if both fail, open an issue with the message shown.
 - Kill breakdowns are fetched for kills only, to stay well inside Warcraft Logs' hourly API point limit.
+- *Avoidable damage shows nothing for a boss*: no abilities are listed for it in `js/avoidable.js`, or the names there don't match how Warcraft Logs spells them. Copy the exact name from the report's Damage Taken page.
 
 ## Run it locally
 
@@ -62,6 +66,7 @@ assets/style.css      styles, light and dark
 js/report-url.js      parse the pasted link into { site, code }
 js/auth.js            OAuth: PKCE sign-in and the client-credentials fallback
 js/api.js             EXTRACT: GraphQL queries, paging, returns one raw "bundle"
+js/avoidable.js       per-boss list of avoidable abilities (reference data)
 js/transform.js       TRANSFORM: pure functions, raw bundle -> analysis model
 js/render.js          PRESENT: analysis model -> HTML and SVG charts
 js/main.js            wiring: form, settings, downloads, tooltips
@@ -78,6 +83,7 @@ The design is a small ETL pipeline. `api.js` lands the raw API response untouche
 | Reformat / filter by expression | `buildPulls()` drops trash fights, derives durations, normalises boss health % |
 | Rollup | `summariseBosses()`, `summariseDeaths()` |
 | Join (lookup) | death events joined to players and ability names from `masterData` |
+| Lookup file | `js/avoidable.js`, the per-boss list of avoidable abilities |
 | Scan (running count) | `pullNo` per boss and death `order` within a pull |
 | Output file | CSV and JSON downloads |
 

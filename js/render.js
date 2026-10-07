@@ -1,6 +1,7 @@
 // Presentation: turns the analysis model into HTML. No data logic lives here.
 
-import { formatDuration, formatNumber } from "./transform.js";
+import { formatDuration, formatNumber, playerChecks, FLASK_OK, FOOD_OK, POTIONS_OK } from "./transform.js";
+import { AVOIDABLE } from "./avoidable.js";
 import { reportLink } from "./report-url.js";
 
 const CLASS_COLORS = {
@@ -33,7 +34,7 @@ function barList(rows, { value, label, tip, second }) {
       const w = (value(r) / max) * 100;
       return `<div class="bar-row" data-tip="${esc(tip(r))}">
         <span class="name">${label(r)}</span>
-        <span class="bar-track"><span class="bar-fill${second ? " second" : ""}" style="width:${w.toFixed(2)}%"></span></span>
+        <span class="bar-track">${w > 0 ? `<span class="bar-fill${second ? " second" : ""}" style="width:${w.toFixed(2)}%"></span>` : ""}</span>
         <span class="val">${esc(r._val ?? "")}</span>
       </div>`;
     })
@@ -251,6 +252,118 @@ function pullLog(model) {
   </div>`;
 }
 
+// ---- player checks: avoidable damage, interrupts, dispels ----
+
+const notInFile = `<p class="muted">This saved file is from an older version and doesn't include this. Analyze the report again to see it.</p>`;
+const topList = (pairs, fmt = (v) => v) => pairs.map(([k, v]) => `${k} (${fmt(v)})`).join(", ");
+
+function avoidableCard(model, checks, bossKey) {
+  const a = checks.avoidable;
+  let body;
+  if (!model.has.avoidable) body = notInFile;
+  else if (!a.hits) {
+    const listed = bossKey ? model.bosses.find((b) => b.bossKey === bossKey)?.boss : null;
+    body = listed && !AVOIDABLE[listed]
+      ? `<p class="muted">No avoidable abilities are listed for ${esc(listed)} yet. Add some in <code>js/avoidable.js</code>.</p>`
+      : `<p class="muted">No avoidable damage taken. Nice.</p>`;
+  } else {
+    const rows = a.byPlayer.map((r) => ({ ...r, _val: r.hits ? `${formatNumber(r.total)} · ${r.hits} hit${r.hits === 1 ? "" : "s"}` : "0" }));
+    const abilityRows = a.byAbility
+      .map((r) => `<tr><td>${esc(r.ability)}</td><td class="num">${r.hits}</td><td class="num">${formatNumber(r.total)}</td><td class="wrap">${esc(topList(r.worst))}</td></tr>`)
+      .join("");
+    body = `${barList(rows, {
+      value: (r) => r.total,
+      label: (r) => cls(r.name, r.cls),
+      tip: (r) => (r.hits ? `${r.name}: ${formatNumber(r.total)} avoidable damage in ${r.hits} hits\n${topList(r.top, formatNumber)}` : `${r.name}: no avoidable damage`),
+    })}
+    <details class="log"><summary>By ability</summary><div class="table-scroll"><table>
+      <thead><tr><th>Ability</th><th class="num">Hits</th><th class="num">Damage</th><th>Hit most (times)</th></tr></thead>
+      <tbody>${abilityRows}</tbody></table></div></details>`;
+  }
+  return `<div class="card">
+    <div class="card-head"><div><h2>Avoidable damage</h2><p>Damage taken from mechanics you're meant to dodge, including absorbed damage. The ability list is in <code>js/avoidable.js</code>.</p></div></div>
+    ${body}
+  </div>`;
+}
+
+function actionCard(title, blurb, summary, has, noun, spellHeading) {
+  let body;
+  if (!has) body = notInFile;
+  else if (!summary.total) body = `<p class="muted">No ${noun} on these pulls.</p>`;
+  else {
+    const rows = summary.byPlayer.map((r) => ({ ...r, _val: r.count }));
+    const spellRows = summary.bySpell
+      .map((r) => `<tr><td>${esc(r.spell)}</td><td class="num">${r.count}</td><td class="wrap">${esc(topList(r.top))}</td></tr>`)
+      .join("");
+    body = `${barList(rows, {
+      value: (r) => r.count,
+      label: (r) => cls(r.name, r.cls),
+      tip: (r) => (r.count ? `${r.name}: ${r.count} ${noun}\n${topList(r.top)}` : `${r.name}: none`),
+      second: true,
+    })}
+    <details class="log"><summary>${esc(spellHeading)}</summary><div class="table-scroll"><table>
+      <thead><tr><th>${esc(spellHeading.replace(/^By /, "").replace(/^./, (c) => c.toUpperCase()))}</th><th class="num">Count</th><th>Done most by</th></tr></thead>
+      <tbody>${spellRows}</tbody></table></div></details>`;
+  }
+  return `<div class="card"><div class="card-head"><div><h2>${esc(title)}</h2><p>${esc(blurb)}</p></div></div>${body}</div>`;
+}
+
+export function checksPanel(model, bossKey = null) {
+  const checks = playerChecks(model, bossKey);
+  return `${avoidableCard(model, checks, bossKey)}
+  <div class="grid-2 section-gap">
+    ${actionCard("Interrupts", "Enemy casts interrupted, per player.", checks.interrupts, model.has.interrupts, "interrupts", "By spell interrupted")}
+    ${actionCard("Dispels", "Debuffs and buffs dispelled, per player.", checks.dispels, model.has.dispels, "dispels", "By aura dispelled")}
+  </div>`;
+}
+
+function checksSection(model) {
+  const options = model.bosses
+    .map((b) => `<option value="${esc(b.bossKey)}">${esc(b.boss)}${model.bosses.filter((x) => x.boss === b.boss).length > 1 ? ` (${esc(b.difficulty)})` : ""}</option>`)
+    .join("");
+  return `<div class="section-bar">
+      <div><h2>Player checks</h2><p class="muted">Across every boss pull, wipes included.</p></div>
+      <label class="muted">Boss <select id="boss-filter" class="inline"><option value="">All bosses</option>${options}</select></label>
+    </div>
+    <div id="checks-panel">${checksPanel(model)}</div>`;
+}
+
+// ---- consumables ----
+
+function statusCell(ok, text, label) {
+  return `<td class="num"><span class="status ${ok ? "ok" : "bad"}" title="${esc(label)}">${ok ? "✓" : "⚠"} ${esc(text)}</span></td>`;
+}
+
+function consumablesSection(model) {
+  let body;
+  if (!model.has.consumables) body = notInFile;
+  else if (!model.consumables.length) body = `<p class="muted">No buff data for this report.</p>`;
+  else {
+    const pct0 = (v) => `${Math.round(v * 100)}%`;
+    const rows = model.consumables
+      .map(
+        (c) => `<tr>
+        <td>${cls(c.name, c.cls)}</td>
+        ${statusCell(c.flaskUptime >= FLASK_OK, pct0(c.flaskUptime), c.flaskNames.join(", ") || "No flask or elixir")}
+        ${statusCell(c.foodUptime >= FOOD_OK, pct0(c.foodUptime), "Well Fed uptime")}
+        ${statusCell(c.potionsPerPull >= POTIONS_OK, `${c.potionUses} (${c.potionsPerPull.toFixed(1)}/pull)`, c.potionNames.join(", ") || "No potions")}
+        <td class="num">${c.pulls}</td>
+      </tr>`,
+      )
+      .join("");
+    const flagged = model.consumables.filter((c) => c.issues.length).length;
+    body = `<p class="summary-line">${flagged ? `${flagged} of ${model.consumables.length} players missed something.` : "Everyone was flasked, fed and potting."}</p>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Player</th><th class="num">Flask / elixir</th><th class="num">Food</th><th class="num">Potions</th><th class="num">Pulls</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>`;
+  }
+  return `<div class="card">
+    <div class="card-head"><div><h2>Consumables</h2><p>Whole night, all bosses. Share of boss time with a flask or elixir and Well Fed, and potions used. Flagged below ${Math.round(FLASK_OK * 100)}% uptime or under ${POTIONS_OK} potion per pull.</p></div></div>
+    ${body}
+  </div>`;
+}
+
 export function renderReport(model, { isDemo = false } = {}) {
   if (!model.pulls.length) {
     return `${header(model, isDemo)}<div class="card"><p>This report has no boss pulls, so there's nothing to analyze yet.</p></div>`;
@@ -262,6 +375,8 @@ export function renderReport(model, { isDemo = false } = {}) {
     progression(model),
     deathsSection(model),
     killsSection(model),
+    checksSection(model),
+    consumablesSection(model),
     composition(model),
     pullLog(model),
   ].join("");
