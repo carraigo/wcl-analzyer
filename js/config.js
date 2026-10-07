@@ -6,7 +6,7 @@
 //   secret, so it is safe to commit. Leave it blank and each visitor can paste
 //   their own in the Settings panel instead.
 export const CONFIG = {
-  clientId: "",
+  clientId: "01a117d3-38f7-73ec-b1ae-84eeb59cb253",
   // Accounts and OAuth live on the main site for every game flavour.
   oauthHost: "https://www.warcraftlogs.com",
   // Used when someone pastes a bare report code instead of a full URL.
