@@ -1,0 +1,1983 @@
+{
+ "format": "wcl-report-bundle/1",
+ "site": "classic",
+ "fetchedAt": "2026-10-07T12:00:00.000Z",
+ "demo": true,
+ "report": {
+  "code": "DemoReport000000",
+  "title": "Demo: Mogu'shan Vaults (made-up data)",
+  "startTime": 1791327600000,
+  "endTime": 1791335173000,
+  "owner": {
+   "name": "Raidleader"
+  },
+  "guild": {
+   "name": "Demo Guild",
+   "server": {
+    "name": "Demo Realm",
+    "slug": "demo-realm",
+    "region": {
+     "slug": "us"
+    }
+   }
+  },
+  "zone": {
+   "id": 1008,
+   "name": "Mogu'shan Vaults"
+  },
+  "fights": [
+   {
+    "id": 1,
+    "encounterID": 0,
+    "name": "Guard trash",
+    "difficulty": null,
+    "kill": null,
+    "startTime": 360000,
+    "endTime": 439000,
+    "bossPercentage": null,
+    "fightPercentage": null,
+    "size": null
+   },
+   {
+    "id": 2,
+    "encounterID": 1395,
+    "name": "The Stone Guard",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 529000,
+    "endTime": 670000,
+    "bossPercentage": 62,
+    "fightPercentage": 62,
+    "size": 10
+   },
+   {
+    "id": 3,
+    "encounterID": 1395,
+    "name": "The Stone Guard",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 761000,
+    "endTime": 982000,
+    "bossPercentage": 31,
+    "fightPercentage": 31,
+    "size": 10
+   },
+   {
+    "id": 4,
+    "encounterID": 1395,
+    "name": "The Stone Guard",
+    "difficulty": 3,
+    "kill": true,
+    "startTime": 1095000,
+    "endTime": 1385000,
+    "bossPercentage": 0,
+    "fightPercentage": 0,
+    "size": 10
+   },
+   {
+    "id": 5,
+    "encounterID": 0,
+    "name": "Accursed trash",
+    "difficulty": null,
+    "kill": null,
+    "startTime": 1507000,
+    "endTime": 1571000,
+    "bossPercentage": null,
+    "fightPercentage": null,
+    "size": null
+   },
+   {
+    "id": 6,
+    "encounterID": 1390,
+    "name": "Feng the Accursed",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 1661000,
+    "endTime": 1781000,
+    "bossPercentage": 71,
+    "fightPercentage": 71,
+    "size": 10
+   },
+   {
+    "id": 7,
+    "encounterID": 1390,
+    "name": "Feng the Accursed",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 1928000,
+    "endTime": 2162000,
+    "bossPercentage": 44,
+    "fightPercentage": 44,
+    "size": 10
+   },
+   {
+    "id": 8,
+    "encounterID": 1390,
+    "name": "Feng the Accursed",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 2318000,
+    "endTime": 2568000,
+    "bossPercentage": 38,
+    "fightPercentage": 38,
+    "size": 10
+   },
+   {
+    "id": 9,
+    "encounterID": 1390,
+    "name": "Feng the Accursed",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 2666000,
+    "endTime": 3015000,
+    "bossPercentage": 12,
+    "fightPercentage": 12,
+    "size": 10
+   },
+   {
+    "id": 10,
+    "encounterID": 1390,
+    "name": "Feng the Accursed",
+    "difficulty": 3,
+    "kill": true,
+    "startTime": 3105000,
+    "endTime": 3445000,
+    "bossPercentage": 0,
+    "fightPercentage": 0,
+    "size": 10
+   },
+   {
+    "id": 11,
+    "encounterID": 0,
+    "name": "Spiritbinder trash",
+    "difficulty": null,
+    "kill": null,
+    "startTime": 3598000,
+    "endTime": 3686000,
+    "bossPercentage": null,
+    "fightPercentage": null,
+    "size": null
+   },
+   {
+    "id": 12,
+    "encounterID": 1434,
+    "name": "Gara'jal the Spiritbinder",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 3776000,
+    "endTime": 3865000,
+    "bossPercentage": 80,
+    "fightPercentage": 80,
+    "size": 10
+   },
+   {
+    "id": 13,
+    "encounterID": 1434,
+    "name": "Gara'jal the Spiritbinder",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 3941000,
+    "endTime": 4116000,
+    "bossPercentage": 55,
+    "fightPercentage": 55,
+    "size": 10
+   },
+   {
+    "id": 14,
+    "encounterID": 1434,
+    "name": "Gara'jal the Spiritbinder",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 4197000,
+    "endTime": 4395000,
+    "bossPercentage": 47,
+    "fightPercentage": 47,
+    "size": 10
+   },
+   {
+    "id": 15,
+    "encounterID": 1434,
+    "name": "Gara'jal the Spiritbinder",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 4469000,
+    "endTime": 4696000,
+    "bossPercentage": 33,
+    "fightPercentage": 33,
+    "size": 10
+   },
+   {
+    "id": 16,
+    "encounterID": 1434,
+    "name": "Gara'jal the Spiritbinder",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 4833000,
+    "endTime": 5123000,
+    "bossPercentage": 21,
+    "fightPercentage": 21,
+    "size": 10
+   },
+   {
+    "id": 17,
+    "encounterID": 1434,
+    "name": "Gara'jal the Spiritbinder",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 5199000,
+    "endTime": 5519000,
+    "bossPercentage": 9,
+    "fightPercentage": 9,
+    "size": 10
+   },
+   {
+    "id": 18,
+    "encounterID": 1434,
+    "name": "Gara'jal the Spiritbinder",
+    "difficulty": 3,
+    "kill": true,
+    "startTime": 5611000,
+    "endTime": 5921000,
+    "bossPercentage": 0,
+    "fightPercentage": 0,
+    "size": 10
+   },
+   {
+    "id": 19,
+    "encounterID": 0,
+    "name": "Kings trash",
+    "difficulty": null,
+    "kill": null,
+    "startTime": 6060000,
+    "endTime": 6109000,
+    "bossPercentage": null,
+    "fightPercentage": null,
+    "size": null
+   },
+   {
+    "id": 20,
+    "encounterID": 1436,
+    "name": "The Spirit Kings",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 6199000,
+    "endTime": 6277000,
+    "bossPercentage": 88,
+    "fightPercentage": 88,
+    "size": 10
+   },
+   {
+    "id": 21,
+    "encounterID": 1436,
+    "name": "The Spirit Kings",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 6365000,
+    "endTime": 6502000,
+    "bossPercentage": 74,
+    "fightPercentage": 74,
+    "size": 10
+   },
+   {
+    "id": 22,
+    "encounterID": 1436,
+    "name": "The Spirit Kings",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 6615000,
+    "endTime": 6778000,
+    "bossPercentage": 66,
+    "fightPercentage": 66,
+    "size": 10
+   },
+   {
+    "id": 23,
+    "encounterID": 1436,
+    "name": "The Spirit Kings",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 6867000,
+    "endTime": 7090000,
+    "bossPercentage": 52,
+    "fightPercentage": 52,
+    "size": 10
+   },
+   {
+    "id": 24,
+    "encounterID": 1436,
+    "name": "The Spirit Kings",
+    "difficulty": 3,
+    "kill": false,
+    "startTime": 7213000,
+    "endTime": 7458000,
+    "bossPercentage": 49,
+    "fightPercentage": 49,
+    "size": 10
+   }
+  ],
+  "masterData": {
+   "actors": [
+    {
+     "id": 1,
+     "name": "Brewmastah",
+     "server": "Demo Realm",
+     "type": "Player",
+     "subType": "Monk"
+    },
+    {
+     "id": 2,
+     "name": "Stonewall",
+     "server": "Demo Realm",
+     "type": "Player",
+     "subType": "Warrior"
+    },
+    {
+     "id": 3,
+     "name": "Healsalot",
+     "server": "Demo Realm",
+     "type": "Player",
+     "subType": "Priest"
+    },
+    {
+     "id": 4,
+     "name": "Mistyleaf",
+     "server": "Demo Realm",
+     "type": "Player",
+     "subType": "Monk"
+    },
+    {
+     "id": 5,
+     "name": "Totemtina",
+     "server": "Demo Realm",
+     "type": "Player",
+     "subType": "Shaman"
+    },
+    {
+     "id": 6,
+     "name": "Pewpew",
+     "server": "Demo Realm",
+     "type": "Player",
+     "subType": "Hunter"
+    },
+    {
+     "id": 7,
+     "name": "Frostbyte",
+     "server": "Demo Realm",
+     "type": "Player",
+     "subType": "Mage"
+    },
+    {
+     "id": 8,
+     "name": "Stabbington",
+     "server": "Demo Realm",
+     "type": "Player",
+     "subType": "Rogue"
+    },
+    {
+     "id": 9,
+     "name": "Doomsday",
+     "server": "Demo Realm",
+     "type": "Player",
+     "subType": "Warlock"
+    },
+    {
+     "id": 10,
+     "name": "Moonfire",
+     "server": "Demo Realm",
+     "type": "Player",
+     "subType": "Druid"
+    }
+   ],
+   "abilities": [
+    {
+     "gameID": 117000,
+     "name": "Jasper Chains"
+    },
+    {
+     "gameID": 117001,
+     "name": "Cobalt Mine"
+    },
+    {
+     "gameID": 117002,
+     "name": "Amethyst Pool"
+    },
+    {
+     "gameID": 117003,
+     "name": "Overload"
+    },
+    {
+     "gameID": 117004,
+     "name": "Lightning Fists"
+    },
+    {
+     "gameID": 117005,
+     "name": "Epicenter"
+    },
+    {
+     "gameID": 117006,
+     "name": "Wildfire Spark"
+    },
+    {
+     "gameID": 117007,
+     "name": "Arcane Velocity"
+    },
+    {
+     "gameID": 117008,
+     "name": "Banishment"
+    },
+    {
+     "gameID": 117009,
+     "name": "Spiritual Grasp"
+    },
+    {
+     "gameID": 117010,
+     "name": "Shadowy Attack"
+    },
+    {
+     "gameID": 117011,
+     "name": "Frail Soul"
+    },
+    {
+     "gameID": 117012,
+     "name": "Pillage"
+    },
+    {
+     "gameID": 117013,
+     "name": "Flanking Orders"
+    },
+    {
+     "gameID": 117014,
+     "name": "Massive Attacks"
+    },
+    {
+     "gameID": 117015,
+     "name": "Maddening Shout"
+    },
+    {
+     "gameID": 1,
+     "name": "Melee"
+    }
+   ]
+  }
+ },
+ "deathEvents": [
+  {
+   "timestamp": 586616,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 10,
+   "abilityGameID": 0,
+   "fight": 2,
+   "killerID": 99,
+   "killingAbilityGameID": 117000
+  },
+  {
+   "timestamp": 597005,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 2,
+   "killerID": 99,
+   "killingAbilityGameID": 117001
+  },
+  {
+   "timestamp": 617949,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 2,
+   "killerID": 99,
+   "killingAbilityGameID": 117001
+  },
+  {
+   "timestamp": 653770,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 2,
+   "killerID": 99,
+   "killingAbilityGameID": 117000
+  },
+  {
+   "timestamp": 655539,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 4,
+   "abilityGameID": 0,
+   "fight": 2,
+   "killerID": 99,
+   "killingAbilityGameID": 117000
+  },
+  {
+   "timestamp": 656584,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 9,
+   "abilityGameID": 0,
+   "fight": 2,
+   "killerID": 99,
+   "killingAbilityGameID": 117001
+  },
+  {
+   "timestamp": 658748,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 3,
+   "abilityGameID": 0,
+   "fight": 2,
+   "killerID": 99,
+   "killingAbilityGameID": 117001
+  },
+  {
+   "timestamp": 659747,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 5,
+   "abilityGameID": 0,
+   "fight": 2,
+   "killerID": 99,
+   "killingAbilityGameID": 117002
+  },
+  {
+   "timestamp": 878048,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 5,
+   "abilityGameID": 0,
+   "fight": 3,
+   "killerID": 99,
+   "killingAbilityGameID": 117001
+  },
+  {
+   "timestamp": 889598,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 9,
+   "abilityGameID": 0,
+   "fight": 3,
+   "killerID": 99,
+   "killingAbilityGameID": 117002
+  },
+  {
+   "timestamp": 925711,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 3,
+   "killerID": 99,
+   "killingAbilityGameID": 117001
+  },
+  {
+   "timestamp": 967576,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 3,
+   "killerID": 99,
+   "killingAbilityGameID": 117003
+  },
+  {
+   "timestamp": 968996,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 4,
+   "abilityGameID": 0,
+   "fight": 3,
+   "killerID": 99,
+   "killingAbilityGameID": 117001
+  },
+  {
+   "timestamp": 969627,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 10,
+   "abilityGameID": 0,
+   "fight": 3,
+   "killerID": 99,
+   "killingAbilityGameID": 117002
+  },
+  {
+   "timestamp": 971129,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 7,
+   "abilityGameID": 0,
+   "fight": 3,
+   "killerID": 99,
+   "killingAbilityGameID": 117003
+  },
+  {
+   "timestamp": 975086,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 3,
+   "killerID": 99,
+   "killingAbilityGameID": 117002
+  },
+  {
+   "timestamp": 977210,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 3,
+   "abilityGameID": 0,
+   "fight": 3,
+   "killerID": 99,
+   "killingAbilityGameID": 117001
+  },
+  {
+   "timestamp": 979288,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 3,
+   "killerID": 99,
+   "killingAbilityGameID": 117000
+  },
+  {
+   "timestamp": 1311716,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 3,
+   "abilityGameID": 0,
+   "fight": 4,
+   "killerID": 99,
+   "killingAbilityGameID": 117003
+  },
+  {
+   "timestamp": 1691346,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 6,
+   "killerID": 99,
+   "killingAbilityGameID": 1
+  },
+  {
+   "timestamp": 1726096,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 10,
+   "abilityGameID": 0,
+   "fight": 6,
+   "killerID": 99,
+   "killingAbilityGameID": 117005
+  },
+  {
+   "timestamp": 1750044,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 6,
+   "killerID": 99,
+   "killingAbilityGameID": 1
+  },
+  {
+   "timestamp": 1769612,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 9,
+   "abilityGameID": 0,
+   "fight": 6,
+   "killerID": 99,
+   "killingAbilityGameID": 117005
+  },
+  {
+   "timestamp": 1774423,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 7,
+   "abilityGameID": 0,
+   "fight": 6,
+   "killerID": 99,
+   "killingAbilityGameID": 117006
+  },
+  {
+   "timestamp": 1778782,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 3,
+   "abilityGameID": 0,
+   "fight": 6,
+   "killerID": 99,
+   "killingAbilityGameID": 117007
+  },
+  {
+   "timestamp": 2039768,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 7,
+   "killerID": 99,
+   "killingAbilityGameID": 117006
+  },
+  {
+   "timestamp": 2098041,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 7,
+   "killerID": 99,
+   "killingAbilityGameID": 117006
+  },
+  {
+   "timestamp": 2123868,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 5,
+   "abilityGameID": 0,
+   "fight": 7,
+   "killerID": 99,
+   "killingAbilityGameID": 117004
+  },
+  {
+   "timestamp": 2146345,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 7,
+   "killerID": 99,
+   "killingAbilityGameID": 117007
+  },
+  {
+   "timestamp": 2149577,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 7,
+   "abilityGameID": 0,
+   "fight": 7,
+   "killerID": 99,
+   "killingAbilityGameID": 117005
+  },
+  {
+   "timestamp": 2159518,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 7,
+   "killerID": 99,
+   "killingAbilityGameID": 117005
+  },
+  {
+   "timestamp": 2383546,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 8,
+   "killerID": 99,
+   "killingAbilityGameID": 117005
+  },
+  {
+   "timestamp": 2416961,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 8,
+   "killerID": 99,
+   "killingAbilityGameID": 117005
+  },
+  {
+   "timestamp": 2509036,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 7,
+   "abilityGameID": 0,
+   "fight": 8,
+   "killerID": 99,
+   "killingAbilityGameID": 117007
+  },
+  {
+   "timestamp": 2539423,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 8,
+   "killerID": 99,
+   "killingAbilityGameID": 117007
+  },
+  {
+   "timestamp": 2559127,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 8,
+   "killerID": 99,
+   "killingAbilityGameID": 117004
+  },
+  {
+   "timestamp": 2841119,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 9,
+   "abilityGameID": 0,
+   "fight": 9,
+   "killerID": 99,
+   "killingAbilityGameID": 117005
+  },
+  {
+   "timestamp": 2858624,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 4,
+   "abilityGameID": 0,
+   "fight": 9,
+   "killerID": 99,
+   "killingAbilityGameID": 117006
+  },
+  {
+   "timestamp": 2952884,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 10,
+   "abilityGameID": 0,
+   "fight": 9,
+   "killerID": 99,
+   "killingAbilityGameID": 117004
+  },
+  {
+   "timestamp": 2994453,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 9,
+   "killerID": 99,
+   "killingAbilityGameID": 117007
+  },
+  {
+   "timestamp": 3005122,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 9,
+   "killerID": 99,
+   "killingAbilityGameID": 117005
+  },
+  {
+   "timestamp": 3008242,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 9,
+   "killerID": 99,
+   "killingAbilityGameID": 117007
+  },
+  {
+   "timestamp": 3811457,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 12,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 3815409,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 10,
+   "abilityGameID": 0,
+   "fight": 12,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 3830251,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 7,
+   "abilityGameID": 0,
+   "fight": 12,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 3855342,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 12,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 3855879,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 12,
+   "killerID": 99,
+   "killingAbilityGameID": 117011
+  },
+  {
+   "timestamp": 3861607,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 5,
+   "abilityGameID": 0,
+   "fight": 12,
+   "killerID": 99,
+   "killingAbilityGameID": 117010
+  },
+  {
+   "timestamp": 4053282,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 7,
+   "abilityGameID": 0,
+   "fight": 13,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 4059963,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 5,
+   "abilityGameID": 0,
+   "fight": 13,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 4060514,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 9,
+   "abilityGameID": 0,
+   "fight": 13,
+   "killerID": 99,
+   "killingAbilityGameID": 117011
+  },
+  {
+   "timestamp": 4097611,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 3,
+   "abilityGameID": 0,
+   "fight": 13,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 4105338,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 4,
+   "abilityGameID": 0,
+   "fight": 13,
+   "killerID": 99,
+   "killingAbilityGameID": 117010
+  },
+  {
+   "timestamp": 4108891,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 13,
+   "killerID": 99,
+   "killingAbilityGameID": 1
+  },
+  {
+   "timestamp": 4110166,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 13,
+   "killerID": 99,
+   "killingAbilityGameID": 117010
+  },
+  {
+   "timestamp": 4110435,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 10,
+   "abilityGameID": 0,
+   "fight": 13,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 4251793,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 7,
+   "abilityGameID": 0,
+   "fight": 14,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 4333499,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 3,
+   "abilityGameID": 0,
+   "fight": 14,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 4362765,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 9,
+   "abilityGameID": 0,
+   "fight": 14,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 4372422,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 4,
+   "abilityGameID": 0,
+   "fight": 14,
+   "killerID": 99,
+   "killingAbilityGameID": 117011
+  },
+  {
+   "timestamp": 4373677,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 14,
+   "killerID": 99,
+   "killingAbilityGameID": 1
+  },
+  {
+   "timestamp": 4374693,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 14,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 4375925,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 14,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 4387075,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 14,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 4557461,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 15,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 4568129,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 4,
+   "abilityGameID": 0,
+   "fight": 15,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 4582583,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 9,
+   "abilityGameID": 0,
+   "fight": 15,
+   "killerID": 99,
+   "killingAbilityGameID": 117011
+  },
+  {
+   "timestamp": 4668976,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 15,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 4675615,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 5,
+   "abilityGameID": 0,
+   "fight": 15,
+   "killerID": 99,
+   "killingAbilityGameID": 117011
+  },
+  {
+   "timestamp": 4676832,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 15,
+   "killerID": 99,
+   "killingAbilityGameID": 117011
+  },
+  {
+   "timestamp": 4680214,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 15,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 4688434,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 3,
+   "abilityGameID": 0,
+   "fight": 15,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 4691671,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 10,
+   "abilityGameID": 0,
+   "fight": 15,
+   "killerID": 99,
+   "killingAbilityGameID": 117011
+  },
+  {
+   "timestamp": 4693270,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 7,
+   "abilityGameID": 0,
+   "fight": 15,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 4911871,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 9,
+   "abilityGameID": 0,
+   "fight": 16,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 4961703,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 16,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 5036503,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 16,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 5114066,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 4,
+   "abilityGameID": 0,
+   "fight": 16,
+   "killerID": 99,
+   "killingAbilityGameID": 117010
+  },
+  {
+   "timestamp": 5397224,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 17,
+   "killerID": 99,
+   "killingAbilityGameID": 117011
+  },
+  {
+   "timestamp": 5426595,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 17,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 5447679,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 17,
+   "killerID": 99,
+   "killingAbilityGameID": 117010
+  },
+  {
+   "timestamp": 5485466,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 17,
+   "killerID": 99,
+   "killingAbilityGameID": 1
+  },
+  {
+   "timestamp": 5498987,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 4,
+   "abilityGameID": 0,
+   "fight": 17,
+   "killerID": 99,
+   "killingAbilityGameID": 117008
+  },
+  {
+   "timestamp": 5499021,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 10,
+   "abilityGameID": 0,
+   "fight": 17,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 5499273,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 3,
+   "abilityGameID": 0,
+   "fight": 17,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 5500746,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 5,
+   "abilityGameID": 0,
+   "fight": 17,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 5509463,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 9,
+   "abilityGameID": 0,
+   "fight": 17,
+   "killerID": 99,
+   "killingAbilityGameID": 117009
+  },
+  {
+   "timestamp": 5703367,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 18,
+   "killerID": 99,
+   "killingAbilityGameID": 1
+  },
+  {
+   "timestamp": 6224366,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 20,
+   "killerID": 99,
+   "killingAbilityGameID": 1
+  },
+  {
+   "timestamp": 6241903,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 20,
+   "killerID": 99,
+   "killingAbilityGameID": 1
+  },
+  {
+   "timestamp": 6261174,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 20,
+   "killerID": 99,
+   "killingAbilityGameID": 117013
+  },
+  {
+   "timestamp": 6273532,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 3,
+   "abilityGameID": 0,
+   "fight": 20,
+   "killerID": 99,
+   "killingAbilityGameID": 117015
+  },
+  {
+   "timestamp": 6410397,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 21,
+   "killerID": 99,
+   "killingAbilityGameID": 1
+  },
+  {
+   "timestamp": 6428955,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 10,
+   "abilityGameID": 0,
+   "fight": 21,
+   "killerID": 99,
+   "killingAbilityGameID": 117012
+  },
+  {
+   "timestamp": 6430089,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 21,
+   "killerID": 99,
+   "killingAbilityGameID": 117013
+  },
+  {
+   "timestamp": 6493082,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 4,
+   "abilityGameID": 0,
+   "fight": 21,
+   "killerID": 99,
+   "killingAbilityGameID": 117012
+  },
+  {
+   "timestamp": 6498470,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 7,
+   "abilityGameID": 0,
+   "fight": 21,
+   "killerID": 99,
+   "killingAbilityGameID": 117013
+  },
+  {
+   "timestamp": 6500329,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 21,
+   "killerID": 99,
+   "killingAbilityGameID": 1
+  },
+  {
+   "timestamp": 6500363,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 21,
+   "killerID": 99,
+   "killingAbilityGameID": 117013
+  },
+  {
+   "timestamp": 6665333,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 2,
+   "abilityGameID": 0,
+   "fight": 22,
+   "killerID": 99,
+   "killingAbilityGameID": 1
+  },
+  {
+   "timestamp": 6731900,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 7,
+   "abilityGameID": 0,
+   "fight": 22,
+   "killerID": 99,
+   "killingAbilityGameID": 117012
+  },
+  {
+   "timestamp": 6743365,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 1,
+   "abilityGameID": 0,
+   "fight": 22,
+   "killerID": 99,
+   "killingAbilityGameID": 117013
+  },
+  {
+   "timestamp": 6761157,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 22,
+   "killerID": 99,
+   "killingAbilityGameID": 117012
+  },
+  {
+   "timestamp": 6763478,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 22,
+   "killerID": 99,
+   "killingAbilityGameID": 117012
+  },
+  {
+   "timestamp": 6764278,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 3,
+   "abilityGameID": 0,
+   "fight": 22,
+   "killerID": 99,
+   "killingAbilityGameID": 117013
+  },
+  {
+   "timestamp": 6767953,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 9,
+   "abilityGameID": 0,
+   "fight": 22,
+   "killerID": 99,
+   "killingAbilityGameID": 117014
+  },
+  {
+   "timestamp": 6773763,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 10,
+   "abilityGameID": 0,
+   "fight": 22,
+   "killerID": 99,
+   "killingAbilityGameID": 117012
+  },
+  {
+   "timestamp": 6774671,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 4,
+   "abilityGameID": 0,
+   "fight": 22,
+   "killerID": 99,
+   "killingAbilityGameID": 117013
+  },
+  {
+   "timestamp": 6775660,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 5,
+   "abilityGameID": 0,
+   "fight": 22,
+   "killerID": 99,
+   "killingAbilityGameID": 117014
+  },
+  {
+   "timestamp": 6974353,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 7,
+   "abilityGameID": 0,
+   "fight": 23,
+   "killerID": 99,
+   "killingAbilityGameID": 117013
+  },
+  {
+   "timestamp": 6984580,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 10,
+   "abilityGameID": 0,
+   "fight": 23,
+   "killerID": 99,
+   "killingAbilityGameID": 117013
+  },
+  {
+   "timestamp": 6994964,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 23,
+   "killerID": 99,
+   "killingAbilityGameID": 117013
+  },
+  {
+   "timestamp": 7071603,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 23,
+   "killerID": 99,
+   "killingAbilityGameID": 117015
+  },
+  {
+   "timestamp": 7078794,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 3,
+   "abilityGameID": 0,
+   "fight": 23,
+   "killerID": 99,
+   "killingAbilityGameID": 117012
+  },
+  {
+   "timestamp": 7079371,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 5,
+   "abilityGameID": 0,
+   "fight": 23,
+   "killerID": 99,
+   "killingAbilityGameID": 117014
+  },
+  {
+   "timestamp": 7382735,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 8,
+   "abilityGameID": 0,
+   "fight": 24,
+   "killerID": 99,
+   "killingAbilityGameID": 117013
+  },
+  {
+   "timestamp": 7386608,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 6,
+   "abilityGameID": 0,
+   "fight": 24,
+   "killerID": 99,
+   "killingAbilityGameID": 117015
+  },
+  {
+   "timestamp": 7396412,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 5,
+   "abilityGameID": 0,
+   "fight": 24,
+   "killerID": 99,
+   "killingAbilityGameID": 117014
+  },
+  {
+   "timestamp": 7432399,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 9,
+   "abilityGameID": 0,
+   "fight": 24,
+   "killerID": 99,
+   "killingAbilityGameID": 117015
+  },
+  {
+   "timestamp": 7439181,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 10,
+   "abilityGameID": 0,
+   "fight": 24,
+   "killerID": 99,
+   "killingAbilityGameID": 117012
+  },
+  {
+   "timestamp": 7445515,
+   "type": "death",
+   "sourceID": -1,
+   "targetID": 7,
+   "abilityGameID": 0,
+   "fight": 24,
+   "killerID": 99,
+   "killingAbilityGameID": 117015
+  }
+ ],
+ "killTables": {
+  "4": {
+   "damage": {
+    "data": {
+     "totalTime": 290000,
+     "entries": [
+      {
+       "name": "Pewpew",
+       "id": 6,
+       "type": "Hunter",
+       "total": 19509756
+      },
+      {
+       "name": "Doomsday",
+       "id": 9,
+       "type": "Warlock",
+       "total": 17952714
+      },
+      {
+       "name": "Stabbington",
+       "id": 8,
+       "type": "Rogue",
+       "total": 16978504
+      },
+      {
+       "name": "Moonfire",
+       "id": 10,
+       "type": "Druid",
+       "total": 16084874
+      },
+      {
+       "name": "Frostbyte",
+       "id": 7,
+       "type": "Mage",
+       "total": 15975726
+      },
+      {
+       "name": "Stonewall",
+       "id": 2,
+       "type": "Warrior",
+       "total": 7330766
+      },
+      {
+       "name": "Brewmastah",
+       "id": 1,
+       "type": "Monk",
+       "total": 5532138
+      },
+      {
+       "name": "Totemtina",
+       "id": 5,
+       "type": "Shaman",
+       "total": 1570386
+      },
+      {
+       "name": "Mistyleaf",
+       "id": 4,
+       "type": "Monk",
+       "total": 1211943
+      },
+      {
+       "name": "Healsalot",
+       "id": 3,
+       "type": "Priest",
+       "total": 593808
+      }
+     ]
+    }
+   },
+   "healing": {
+    "data": {
+     "totalTime": 290000,
+     "entries": [
+      {
+       "name": "Totemtina",
+       "id": 5,
+       "type": "Shaman",
+       "total": 16750275
+      },
+      {
+       "name": "Mistyleaf",
+       "id": 4,
+       "type": "Monk",
+       "total": 15406631
+      },
+      {
+       "name": "Healsalot",
+       "id": 3,
+       "type": "Priest",
+       "total": 12628475
+      }
+     ]
+    }
+   }
+  },
+  "10": {
+   "damage": {
+    "data": {
+     "totalTime": 340000,
+     "entries": [
+      {
+       "name": "Pewpew",
+       "id": 6,
+       "type": "Hunter",
+       "total": 21661842
+      },
+      {
+       "name": "Frostbyte",
+       "id": 7,
+       "type": "Mage",
+       "total": 21037162
+      },
+      {
+       "name": "Stabbington",
+       "id": 8,
+       "type": "Rogue",
+       "total": 19743186
+      },
+      {
+       "name": "Doomsday",
+       "id": 9,
+       "type": "Warlock",
+       "total": 18449723
+      },
+      {
+       "name": "Moonfire",
+       "id": 10,
+       "type": "Druid",
+       "total": 17268025
+      },
+      {
+       "name": "Brewmastah",
+       "id": 1,
+       "type": "Monk",
+       "total": 8272751
+      },
+      {
+       "name": "Stonewall",
+       "id": 2,
+       "type": "Warrior",
+       "total": 5613813
+      },
+      {
+       "name": "Totemtina",
+       "id": 5,
+       "type": "Shaman",
+       "total": 1064342
+      },
+      {
+       "name": "Healsalot",
+       "id": 3,
+       "type": "Priest",
+       "total": 880023
+      },
+      {
+       "name": "Mistyleaf",
+       "id": 4,
+       "type": "Monk",
+       "total": 852275
+      }
+     ]
+    }
+   },
+   "healing": {
+    "data": {
+     "totalTime": 340000,
+     "entries": [
+      {
+       "name": "Healsalot",
+       "id": 3,
+       "type": "Priest",
+       "total": 19154791
+      },
+      {
+       "name": "Mistyleaf",
+       "id": 4,
+       "type": "Monk",
+       "total": 16551459
+      },
+      {
+       "name": "Totemtina",
+       "id": 5,
+       "type": "Shaman",
+       "total": 14244464
+      },
+      {
+       "name": "Frostbyte",
+       "id": 7,
+       "type": "Mage",
+       "total": 1688325
+      }
+     ]
+    }
+   }
+  },
+  "18": {
+   "damage": {
+    "data": {
+     "totalTime": 310000,
+     "entries": [
+      {
+       "name": "Pewpew",
+       "id": 6,
+       "type": "Hunter",
+       "total": 19326434
+      },
+      {
+       "name": "Frostbyte",
+       "id": 7,
+       "type": "Mage",
+       "total": 17766282
+      },
+      {
+       "name": "Stabbington",
+       "id": 8,
+       "type": "Rogue",
+       "total": 17485214
+      },
+      {
+       "name": "Moonfire",
+       "id": 10,
+       "type": "Druid",
+       "total": 15330971
+      },
+      {
+       "name": "Doomsday",
+       "id": 9,
+       "type": "Warlock",
+       "total": 14941387
+      },
+      {
+       "name": "Stonewall",
+       "id": 2,
+       "type": "Warrior",
+       "total": 7350599
+      },
+      {
+       "name": "Brewmastah",
+       "id": 1,
+       "type": "Monk",
+       "total": 5655930
+      },
+      {
+       "name": "Healsalot",
+       "id": 3,
+       "type": "Priest",
+       "total": 1227778
+      },
+      {
+       "name": "Mistyleaf",
+       "id": 4,
+       "type": "Monk",
+       "total": 924114
+      },
+      {
+       "name": "Totemtina",
+       "id": 5,
+       "type": "Shaman",
+       "total": 659085
+      }
+     ]
+    }
+   },
+   "healing": {
+    "data": {
+     "totalTime": 310000,
+     "entries": [
+      {
+       "name": "Totemtina",
+       "id": 5,
+       "type": "Shaman",
+       "total": 17321222
+      },
+      {
+       "name": "Mistyleaf",
+       "id": 4,
+       "type": "Monk",
+       "total": 15429946
+      },
+      {
+       "name": "Healsalot",
+       "id": 3,
+       "type": "Priest",
+       "total": 13181866
+      },
+      {
+       "name": "Brewmastah",
+       "id": 1,
+       "type": "Monk",
+       "total": 1135554
+      },
+      {
+       "name": "Stabbington",
+       "id": 8,
+       "type": "Rogue",
+       "total": 1081939
+      },
+      {
+       "name": "Frostbyte",
+       "id": 7,
+       "type": "Mage",
+       "total": 737984
+      }
+     ]
+    }
+   }
+  }
+ }
+}

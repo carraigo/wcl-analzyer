@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raid Log Analyzer</title>
+  <meta name="description" content="Paste a Warcraft Logs report and get a raid-night summary: progression, wipes, deaths, and damage and healing on kills.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <h1 class="brand">Raid Log Analyzer</h1>
+      <div class="auth" id="auth-area">
+        <span id="auth-status" class="muted">Not signed in</span>
+        <button type="button" id="sign-in" class="btn">Sign in with Warcraft Logs</button>
+        <button type="button" id="sign-out" class="btn ghost" hidden>Sign out</button>
+        <button type="button" id="open-settings" class="btn ghost" aria-haspopup="dialog">Settings</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <form id="report-form" class="report-form" autocomplete="off">
+      <label for="report-input" class="label">Warcraft Logs report URL or code</label>
+      <div class="input-row">
+        <input id="report-input" name="report" type="text" inputmode="url"
+               placeholder="https://classic.warcraftlogs.com/reports/C9vGDNW7p6Aq1Ld2" required>
+        <button type="submit" class="btn primary">Analyze</button>
+      </div>
+      <div class="form-links">
+        <button type="button" id="load-demo" class="link">Try it with demo data</button>
+        <span aria-hidden="true">·</span>
+        <label class="link file-link">Open a saved JSON file<input type="file" id="load-file" accept="application/json,.json" hidden></label>
+      </div>
+    </form>
+
+    <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+    <section id="results" aria-live="polite"></section>
+  </main>
+
+  <dialog id="settings" class="settings">
+    <form method="dialog" id="settings-form">
+      <h2>Settings</h2>
+      <p class="muted">Everything here is stored only in this browser.</p>
+
+      <fieldset>
+        <legend>Sign in (recommended)</legend>
+        <label for="client-id" class="label">Public client ID</label>
+        <input id="client-id" type="text" spellcheck="false" placeholder="from warcraftlogs.com/api/clients">
+        <p class="hint">Create a client at <a href="https://www.warcraftlogs.com/api/clients/" target="_blank" rel="noopener">warcraftlogs.com/api/clients</a>, tick <b>Public Client</b>, and set the redirect URL to <code id="redirect-hint"></code></p>
+      </fieldset>
+
+      <details>
+        <summary>Advanced: use a client secret instead</summary>
+        <p class="hint">For a private (non-public) client. The secret is used once to get a token and is not saved.</p>
+        <label for="cc-id" class="label">Client ID</label>
+        <input id="cc-id" type="text" spellcheck="false">
+        <label for="cc-secret" class="label">Client secret</label>
+        <input id="cc-secret" type="password" spellcheck="false" autocomplete="off">
+        <button type="button" id="cc-sign-in" class="btn">Get token</button>
+      </details>
+
+      <div class="dialog-actions">
+        <button value="cancel" class="btn ghost">Close</button>
+        <button value="save" id="save-settings" class="btn primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+
+  <footer class="wrap site-footer muted">
+    Runs entirely in your browser. Data comes from the <a href="https://www.warcraftlogs.com/v2-api-docs/warcraft/" target="_blank" rel="noopener">Warcraft Logs API</a>; not affiliated with Warcraft Logs or Blizzard.
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

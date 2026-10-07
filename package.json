@@ -1,0 +1,11 @@
+{
+  "name": "wcl-report-analyzer",
+  "private": true,
+  "description": "Static, browser-only analyzer for Warcraft Logs raid reports.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "demo": "node tools/make-demo.mjs",
+    "serve": "npx --yes serve ."
+  }
+}
